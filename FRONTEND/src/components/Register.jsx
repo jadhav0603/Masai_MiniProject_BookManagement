@@ -19,7 +19,7 @@ const Register = ({ onRegisterSuccess }) => {
         try {
             setLoading(true)
 
-            const response = await axios.post('http://localhost:3000/api/auth/register',
+            const response = await axios.post('https://masai-miniproject-bookmanagement-1.onrender.com/api/auth/register',
                 { userName, email, password, gender, DOB }
             )
 

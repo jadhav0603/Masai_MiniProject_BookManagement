@@ -4,17 +4,21 @@ import NavigationBar from "../components/NavigationBar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../contexts/AuthContext";
 import MyBookCard from './../components/MyBookCard';
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const MyBooks = () => {
   const [userBooksData, setUserBooksData] = useState([]);
   const {rating, status} = useContext(AuthContext)
   const [emptyError, setEmptyError] = useState(false)
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const fetchUserBooks = async () => {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://localhost:3000/api/myBooks", {
+        const response = await axios.get("https://masai-miniproject-bookmanagement-1.onrender.com/api/myBooks", {
           headers: {
             authorization: `Bearer ${token}`,
           },
@@ -27,8 +31,10 @@ const MyBooks = () => {
       } catch (error) {
         console.log(error);
         setEmptyError(true)
-        // if(error.status === 204){
-        // }
+        if(error.status === 500){
+          toast.error('Login First')
+          navigate('/')
+        }
       }
     };
 

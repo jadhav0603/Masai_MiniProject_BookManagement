@@ -9,6 +9,7 @@ const Logout = () => {
     
     const handleLogout = ()=>{
         localStorage.removeItem('token')
+        localStorage.removeItem('email')
         toast.warning('User LogOut Successfully')
         navigate('/')
     }

@@ -15,7 +15,7 @@ const AuthContextProvider = ({children}) => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const response = await axios.get("http://localhost:3000/api/books")
+        const response = await axios.get("https://masai-miniproject-bookmanagement-1.onrender.com/api/books")
         console.log(response.data)
         setBooksData(response.data)
         setLoading(false)

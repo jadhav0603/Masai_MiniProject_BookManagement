@@ -9,7 +9,7 @@ const MyBookCard = ({ ele, i }) => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/mybooks/${bookId}/rating`,
+        `https://masai-miniproject-bookmanagement-1.onrender.com/api/mybooks/${bookId}/rating`,
         { rating: rateValue },
         {
           headers: {
@@ -28,7 +28,7 @@ const MyBookCard = ({ ele, i }) => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.patch(
-        `http://localhost:3000/api/mybooks/${bookId}/status`,
+        `https://masai-miniproject-bookmanagement-1.onrender.com/api/mybooks/${bookId}/status`,
         { status: statusValue },
         {
           headers: {
